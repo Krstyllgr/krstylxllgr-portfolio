@@ -1,0 +1,234 @@
+// Global styles and minor tweaks; prefer inline Bootstrap classes in components
+
+// Color tokens and theme mapping
+:root {
+  --brand-darkest: #0F044C; // darkest purple
+  --brand-dark: #141E61; // dark blue-purple
+  --brand-medium: #787A91; // medium gray-purple
+  --brand-light: #EEEEEE; // light gray
+  --hero-blue-rgb: 20, 30, 97; // dark blue-purple RGB for alpha blends
+
+  // Bootstrap color bridges
+  --bs-primary: var(--brand-dark);
+  --bs-link-color: var(--brand-dark);
+  --bs-link-hover-color: var(--brand-darkest);
+}
+
+[data-bs-theme='dark'] {
+  --bs-primary: var(--brand-medium);
+  --bs-link-color: var(--brand-light);
+  --bs-link-hover-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--brand-light);
+}
+
+[data-bs-theme='dark'] body {
+  background-color: var(--brand-darkest);
+}
+
+// Offset anchor targets for fixed navbar height
+section {
+  scroll-margin-top: 72px; // navbar height
+}
+
+// Hero section helper
+.hero {
+  min-height: 100vh; // occupy full screen on load
+}
+
+// Subtle glow for hero
+.hero-glow {
+  position: relative;
+}
+
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 60% 38%, rgba(var(--hero-blue-rgb), 0.45) 0%, rgba(var(--hero-blue-rgb), 0.30) 28%, rgba(var(--hero-blue-rgb), 0.15) 54%, rgba(var(--hero-blue-rgb), 0.0) 78%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-bs-theme='dark'] .hero-glow::before {
+  background:
+    radial-gradient(circle at 65% 40%, rgba(238, 238, 238, 0.25) 0%, rgba(238, 238, 238, 0.15) 22%, rgba(238, 238, 238, 0.08) 40%, rgba(238, 238, 238, 0.0) 58%);
+}
+
+.hero-glow > .container {
+  position: relative;
+  z-index: 1;
+}
+
+// Larger vertical spacing helper for prominent sections
+.section-xl {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+// Skill cards styling
+.skill-card {
+  background: rgba(238, 238, 238, 0.8);
+  border: 1px solid rgba(20, 30, 97, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(20, 30, 97, 0.15);
+  border-color: rgba(20, 30, 97, 0.2);
+}
+
+[data-bs-theme='dark'] .skill-card {
+  background: rgba(15, 4, 76, 0.8);
+  border-color: rgba(120, 122, 145, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme='dark'] .skill-card:hover {
+  box-shadow: 0 8px 25px rgba(120, 122, 145, 0.2);
+  border-color: rgba(120, 122, 145, 0.3);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+// Subtle card hover
+.card-hover:hover {
+  transform: translateY(-2px);
+  transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+// Project cards styling
+.project-card {
+  height: 280px;
+}
+
+.project-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card .card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card .card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card .card-text {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+// Utilities for avatars/images
+.avatar {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  /* shift focal point slightly downward so top isn't cropped */
+  object-position: center 20%;
+  border-radius: 50%;
+}
+
+.avatar-lg {
+  width: 220px;
+  height: 220px;
+}
+
+@media (min-width: 768px) {
+  .avatar-lg {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+// Make anchor focus visible for accessibility
+a:focus-visible, button:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.6);
+  outline-offset: 2px;
+}
+
+// Footer divider
+.footer-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-bs-theme='dark'] .footer-divider {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+// Minimalist background patterns using CSS gradients (no assets required)
+.bg-pattern {
+  /* soft dots pattern */
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(20, 30, 97, 0.15) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(20, 30, 97, 0.08) 1px, transparent 0);
+  background-size: 24px 24px, 48px 48px;
+  background-position: 0 0, 12px 12px;
+  background-attachment: scroll;
+}
+
+[data-bs-theme='dark'] .bg-pattern {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(120, 122, 145, 0.2) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(120, 122, 145, 0.12) 1px, transparent 0);
+}
+
+.bg-pattern-alt {
+  /* subtle diagonal lines */
+  background-image:
+    linear-gradient(135deg, rgba(20, 30, 97, 0.04) 25%, transparent 25%),
+    linear-gradient(135deg, transparent 75%, rgba(20, 30, 97, 0.04) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  background-attachment: scroll;
+}
+
+[data-bs-theme='dark'] .bg-pattern-alt {
+  background-image:
+    linear-gradient(135deg, rgba(120, 122, 145, 0.06) 25%, transparent 25%),
+    linear-gradient(135deg, transparent 75%, rgba(120, 122, 145, 0.06) 75%);
+}
+
+// Hero-specific minimalist grid pattern
+.bg-pattern-hero {
+  background-image:
+    linear-gradient(180deg, rgba(238, 238, 238, 0.55), rgba(238, 238, 238, 0.0)),
+    linear-gradient(to right, rgba(20, 30, 97, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 30, 97, 0.04) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
+  background-attachment: scroll;
+}
+
+[data-bs-theme='dark'] .bg-pattern-hero {
+  background-image:
+    linear-gradient(180deg, rgba(120, 122, 145, 0.10), rgba(120, 122, 145, 0.0)),
+    linear-gradient(to right, rgba(120, 122, 145, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 122, 145, 0.08) 1px, transparent 1px);
+}
+
+
