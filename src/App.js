@@ -225,10 +225,59 @@ function App() {
               }
             ].map((project) => (
               <Col md={6} lg={4} key={project.id}>
-                <Card className="project-card card-hover" style={{ cursor: 'pointer' }} onClick={() => handleProjectClick(project)}>
+                <Card className="project-card card-hover" style={{ cursor: 'pointer', minHeight: '380px' }} onClick={() => handleProjectClick(project)}>
                   <Card.Img variant="top" src={project.images[0]} alt={`${project.title} thumbnail`} />
-                  <Card.Body>
+                  <Card.Body style={{ padding: '1.5rem' }}>
                     <Card.Title>{project.title}</Card.Title>
+                    {project.id === 1 && (
+                      <div className="d-flex flex-wrap gap-2 mb-3">
+                        <span 
+                          className="tech-tag"
+                          style={{
+                            backgroundColor: '#f8f9fa',
+                            color: '#495057',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            border: '1px solid #e9ecef',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          React
+                        </span>
+                        <span 
+                          className="tech-tag"
+                          style={{
+                            backgroundColor: '#f8f9fa',
+                            color: '#495057',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            border: '1px solid #e9ecef',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          Next.js
+                        </span>
+                        <span 
+                          className="tech-tag"
+                          style={{
+                            backgroundColor: '#f8f9fa',
+                            color: '#495057',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            border: '1px solid #e9ecef',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          Tailwind
+                        </span>
+                      </div>
+                    )}
                     <Card.Text>
                       Click to view details and screenshots of this project.
                     </Card.Text>
@@ -253,26 +302,15 @@ function App() {
                   I'm always interested in hearing about new projects and opportunities. 
                   Whether you have a question or just want to say hi, feel free to reach out!
                 </p>
-                <div className="contact-email">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="email-icon">
-                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/>
-                  </svg>
-                  <span>alegrekrstylxl@gmail.com</span>
-                </div>
                 <div className="social-links">
-                  <a href="#" aria-label="LinkedIn" className="social-link">
+                  <a href="https://www.linkedin.com/in/kristyl-axlee-alegre-9722a8285" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.214c.837 0 1.358-.554 1.358-1.248-.015-.709-.521-1.248-1.342-1.248S2.4 3.223 2.4 3.932c0 .694.521 1.248 1.327 1.248zM13.458 13.394v-3.98c0-2.129-1.138-3.121-2.654-3.121-1.223 0-1.774.671-2.082 1.144v-0.981H6.321c.03.65 0 7.038 0 7.038h2.401v-3.93c0-.21.015-.42.077-.571.168-.42.551-.855 1.194-.855.843 0 1.18.646 1.18 1.594v3.762z"/>
                     </svg>
                   </a>
-                  <a href="#" aria-label="GitHub" className="social-link">
+                  <a href="https://github.com/Krstylxllgr" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="Twitter" className="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
                     </svg>
                   </a>
                 </div>
@@ -336,8 +374,36 @@ function App() {
               <p className="fs-5">{selectedProject.description}</p>
               {selectedProject.id === 1 && (
                 <div className="mt-3">
-                  <a href="https://fusionnode.ai/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    Visit FusionNode Website
+                  <a 
+                    href="https://fusionnode.ai/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn d-inline-flex align-items-center gap-2"
+                    style={{
+                      backgroundColor: '#495057',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '10px 16px',
+                      fontSize: '0.875rem',
+                      fontWeight: '500',
+                      textDecoration: 'none',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = '#343a40';
+                      e.target.style.transform = 'translateY(-1px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = '#495057';
+                      e.target.style.transform = 'translateY(0)';
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                      <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                    </svg>
+                    Live Demo
                   </a>
                 </div>
               )}
@@ -351,47 +417,6 @@ function App() {
         </Modal.Footer>
       </Modal>
 
-      {/* Floating Back to Top Button */}
-      <button
-        onClick={() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        className="floating-back-to-top"
-        aria-label="Back to top"
-        style={{
-          position: 'fixed',
-          bottom: '30px',
-          right: '30px',
-          width: '50px',
-          height: '50px',
-          borderRadius: '50%',
-          backgroundColor: 'var(--bs-primary)',
-          border: 'none',
-          color: 'white',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-          transition: 'all 0.3s ease',
-          zIndex: 1000,
-          opacity: 0.9
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.transform = 'scale(1.1)';
-          e.target.style.opacity = '1';
-          e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.25)';
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.transform = 'scale(1)';
-          e.target.style.opacity = '0.9';
-          e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-        }}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M4.5 1a.5.5 0 0 1 .5.5V9a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6A.5.5 0 0 1 15 6.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V1.5a.5.5 0 0 1 .5-.5h-7zM8 2.5l-5 5V9h10V7.5l-5-5z"/>
-        </svg>
-      </button>
     </div>
   );
 }
