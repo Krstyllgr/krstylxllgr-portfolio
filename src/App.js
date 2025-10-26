@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Navbar, Nav, Button, Row, Col, Card, Badge, Modal, Carousel } from 'react-bootstrap';
+import { Container, Navbar, Nav, Button, Row, Col, Card, Modal, Carousel } from 'react-bootstrap';
 import MyPic from "../src/assets/me.png"
 import FN1 from "../src/assets/FN/fn1.png"
 import FN2 from "../src/assets/FN/fn2.png"
@@ -7,6 +7,11 @@ import FN3 from "../src/assets/FN/fn3.png"
 import FN4 from "../src/assets/FN/fn4.png"
 import FN5 from "../src/assets/FN/fn5.png"
 import FN6 from "../src/assets/FN/fn6.png"
+import Cafe1 from "../src/assets/Cafe/Screenshot 2025-10-26 153429.png"
+import Cafe2 from "../src/assets/Cafe/Screenshot 2025-10-26 153447.png"
+import Cafe3 from "../src/assets/Cafe/Screenshot 2025-10-26 153509.png"
+import Cafe4 from "../src/assets/Cafe/Screenshot 2025-10-26 153532.png"
+import Cafe5 from "../src/assets/Cafe/Screenshot 2025-10-26 153544.png"
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -222,6 +227,18 @@ function App() {
                   FN5,
                   FN6
                 ]
+              },
+              {
+                id: 2,
+                title: "Brew & Wind Cafe",
+                description: "A comprehensive cafe website showcasing Brew & Wind Cafe's story, journey, menu offerings, and best sellers. Features include an engaging about section telling the cafe's story, detailed menu with categories, highlighted best-selling items, and contact information. Built with React and Bootstrap for a warm, inviting design that reflects the cafe's atmosphere.",
+                images: [
+                  Cafe1,
+                  Cafe2,
+                  Cafe3,
+                  Cafe4,
+                  Cafe5
+                ]
               }
             ].map((project) => (
               <Col md={6} lg={4} key={project.id}>
@@ -275,6 +292,40 @@ function App() {
                           }}
                         >
                           Tailwind
+                        </span>
+                      </div>
+                    )}
+                    {project.id === 2 && (
+                      <div className="d-flex flex-wrap gap-2 mb-3">
+                        <span 
+                          className="tech-tag"
+                          style={{
+                            backgroundColor: '#f8f9fa',
+                            color: '#495057',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            border: '1px solid #e9ecef',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          React
+                        </span>
+                        <span 
+                          className="tech-tag"
+                          style={{
+                            backgroundColor: '#f8f9fa',
+                            color: '#495057',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            border: '1px solid #e9ecef',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          Bootstrap
                         </span>
                       </div>
                     )}
